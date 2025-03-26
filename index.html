@@ -199,12 +199,68 @@
             padding: 10px;
             border-radius: 6px;
         }
+
+        /* Stile per l'header */
+header {
+    width: 100%;
+    background-color: #007bff;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    font-size: 18px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffdd57;
+}
     </style>
 </head>
 <body>
+<header>
+    <nav class="navbar">
+        <div class="logo">VaultGen</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Generatore</a></li>
+            <li><a href="#">Forza Password</a></li>
+            <li><a href="#">Controlla Compromissione</a></li>
+            <li><a href="#">Contatti</a></li>
+        </ul>
+    </nav>
+</header>
     <div class="container">
         <h1>VaultGen: Secure Password Generator</h1>
-        
+        <h2>Welcome to the VaultGen Password Generator</h2>
         <label for="length">Password length (4-64):</label>
         <input type="number" id="length" min="4" max="64" value="12">
         
