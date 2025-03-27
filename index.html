@@ -388,7 +388,7 @@ body {
             function generatePassword() {
                 const length = parseInt(elements.length.value);
                 if (isNaN(length) || length < 4 || length > 64) {
-                    alert("Lunghezza non valida (4-64 caratteri)");
+                    alert("Invalid length (4-64 characters)");
                     return;
                 }
 
@@ -397,7 +397,7 @@ body {
                     .map(([, chars]) => chars);
 
                 if (selectedSets.length === 0) {
-                    alert("Seleziona almeno un tipo di carattere");
+                    alert("Please select at least one font");
                     return;
                 }
 
@@ -416,7 +416,7 @@ body {
             async function copyPassword() {
             const password = elements.password.textContent;
             if (!password) {
-                alert("Genera prima una password!");
+                alert("Generate a password first!");
                 return;
             }
 
@@ -439,7 +439,7 @@ body {
                 }
 
                 // Feedback visivo migliorato
-                elements.copyBtn.textContent = "✓ Copiato!";
+                elements.copyBtn.textContent = "✓ Copied!";
                 elements.copyBtn.style.backgroundColor = "#218838";
                 setTimeout(() => {
                     elements.copyBtn.textContent = "Copia";
@@ -448,7 +448,7 @@ body {
 
             } catch (err) {
                 console.error("Copia fallita:", err);
-                alert("Errore! Usa Ctrl+C per copiare manualmente.");
+                alert("Error! Use Ctrl+C to copy manually.");
             } finally {
                 document.body.removeChild(textArea);
             }
@@ -526,13 +526,13 @@ body {
 
                     const compromised = results.includes(suffix);
                     elements.compromiseResult.textContent = compromised 
-                        ? "⚠️ Password trovata in database di leak!" 
-                        : "✅ Password sicura (non compromessa)";
+                        ? "⚠️ Password found in leak database!" 
+                        : "✅ Secure password (not compromised)";
                     elements.compromiseResult.style.backgroundColor = compromised ? "#f8d7da" : "#d4edda";
                     elements.compromiseResult.style.color = compromised ? "#721c24" : "#155724";
 
                 } catch (error) {
-                    elements.compromiseResult.textContent = "❌ Errore durante la verifica";
+                    elements.compromiseResult.textContent = "❌ Error during verification";
                     elements.compromiseResult.style.backgroundColor = "#f8d7da";
                 }
             }
