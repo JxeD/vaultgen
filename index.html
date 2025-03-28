@@ -31,7 +31,7 @@
 
         h1 {
             font-size: 30px;
-            color: #333;
+            color: #1a1a1a;
             margin-top: 25px;
             margin-bottom: 25px;
         }
@@ -165,13 +165,13 @@
         
         h2 {
             font-size: 26px;
-            color: #444;
+            color: #2d2d2d;
             margin-bottom: 15px;
         }
 
         h3 {
             font-size: 22px;
-            color: #444;
+            color: #333333;
             margin-bottom: 15px;
         }
 
@@ -208,6 +208,180 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 1001;
+    padding: 20px;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.sidebar-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    width: 32px;
+    height: 32px;
+}
+
+.sidebar-close:hover {
+    background-color: #f0f2f5;
+}
+
+.sidebar-close svg {
+    width: 16px;
+    height: 16px;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+    background-color: #f0f2f5;
+    color: #007bff;
+}
+
+.sidebar-theme {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-theme:hover {
+    background-color: #f0f2f5;
+}
+
+.sidebar-theme span {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Theme switcher styles */
+.theme-switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.theme-switch svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.theme-switch .sun {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    color: #333;
+}
+
+.theme-switch .moon {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .theme-switch .sun {
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-switch .moon {
+    opacity: 1;
+}
+
+/* Dark theme button styles */
+[data-theme="dark"] .sidebar-close {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .sidebar-close:hover {
+    background-color: #404040;
+}
+
+/* Overlay for sidebar */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .navbar {
@@ -273,9 +447,159 @@ body {
 
 details {
     margin-bottom: 25px;
+    padding: 20px;
     border: 5px;
     border-color: black;
     border-radius: 20px;
+}
+
+/* Dark theme styles */
+[data-theme="dark"] {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .container {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+[data-theme="dark"] body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .section {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark theme sidebar styles */
+[data-theme="dark"] .sidebar {
+    background-color: #2d2d2d;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .sidebar-header {
+    border-bottom-color: #404040;
+}
+
+[data-theme="dark"] .sidebar-header h2 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .sidebar-nav a {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .sidebar-nav a:hover {
+    background-color: #404040;
+    color: #007bff;
+}
+
+[data-theme="dark"] .sidebar-theme {
+    border-top-color: #404040;
+}
+
+[data-theme="dark"] .sidebar-theme span {
+    color: #ffffff;
+}
+
+/* Dark theme input styles */
+[data-theme="dark"] input {
+    background-color: #404040;
+    border-color: #505050;
+    color: #ffffff;
+}
+
+[data-theme="dark"] input::placeholder {
+    color: #a0a0a0;
+}
+
+/* Dark theme password container styles */
+[data-theme="dark"] .password {
+    background-color: #404040;
+    border-color: #505050;
+    color: #ffffff;
+}
+
+/* Dark theme label styles */
+[data-theme="dark"] label {
+    color: #ffffff;
+}
+
+/* Dark theme switch styles */
+[data-theme="dark"] .switch-label {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .slider {
+    background-color: #505050;
+}
+
+[data-theme="dark"] .slider:before {
+    background-color: #ffffff;
+}
+
+[data-theme="dark"] input:checked + .slider {
+    background-color: #007bff;
+}
+
+/* Dark theme strength bar styles */
+[data-theme="dark"] .strength-bar {
+    background-color: #404040;
+}
+
+/* Dark theme details styles */
+[data-theme="dark"] details {
+    background-color: #2d2d2d;
+    border-color: #404040;
+}
+
+[data-theme="dark"] details summary {
+    color: #ffffff;
+}
+
+[data-theme="dark"] details p {
+    color: #e0e0e0;
+}
+
+/* Menu button styles */
+.menu-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.menu-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Dark theme styles */
+[data-theme="dark"] h1 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] h2 {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] h3 {
+    color: #cccccc;
 }
 
     </style>
@@ -284,13 +608,54 @@ details {
     <header>
     <nav class="navbar">
         <div class="logo">VaultGen</div>
-        <ul class="nav-links">
-            <li><a href="#generate">Generate</a></li>
-            <li><a href="#copy-btn">Strength</a></li>
-            <li><a href="#strength-text">Compromise</a></li>
-        </ul>
+        <button class="menu-btn" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
     </nav>
 </header>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay"></div>
+<div class="sidebar">
+    <div class="sidebar-header">
+        <h2>Menu</h2>
+        <button class="sidebar-close" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+    <ul class="sidebar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About Us</a></li>
+    </ul>
+    <div class="sidebar-theme">
+        <span>Theme</span>
+        <button class="theme-switch" aria-label="Toggle theme">
+            <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
     <div class="container">
         
         <h1>VaultGen: Secure Fast Trustworthy</h1>
@@ -394,6 +759,48 @@ details {
     
         <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Sidebar functionality
+            const menuBtn = document.querySelector('.menu-btn');
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarOverlay = document.querySelector('.sidebar-overlay');
+            const sidebarClose = document.querySelector('.sidebar-close');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuBtn.addEventListener('click', openSidebar);
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+
+            // Theme switcher functionality
+            const themeSwitch = document.querySelector('.theme-switch');
+            const themeSection = document.querySelector('.sidebar-theme');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // Check for saved theme preference or default to light theme
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
+            function toggleTheme() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            }
+
+            themeSection.addEventListener('click', toggleTheme);
+
             // Elementi DOM
             const elements = {
                 length: document.getElementById("length"),
