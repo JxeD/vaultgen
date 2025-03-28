@@ -46,6 +46,8 @@
             padding: 12px;
             margin-top: 10px;
             width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
             border-radius: 8px;
             border: 1px solid #ccc;
             transition: all 0.3s ease;
@@ -160,6 +162,12 @@
             background-color: #f8f8f8;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         h2 {
@@ -785,6 +793,9 @@ ul li svg {
     display: flex;
     gap: 40px;
     align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+    flex-direction: row-reverse;
 }
 
 .section-text {
@@ -805,11 +816,11 @@ ul li svg {
 }
 
 /* FAQ section specific styles */
-.section:last-child .section-content {
+.section:last-child {
     display: block;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 60px auto 0;
     padding: 40px;
     background: white;
     border-radius: 12px;
@@ -919,7 +930,7 @@ details[open] summary + ul {
 }
 
 /* Dark theme adjustments for FAQ section */
-[data-theme="dark"] .section:last-child .section-content {
+[data-theme="dark"] .section:last-child {
     background: #1a1a1a;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
@@ -1008,29 +1019,40 @@ details[open] summary + ul {
     }
 
     /* FAQ section mobile styles */
-    .section:last-child .section-content {
-        padding: 20px;
-        margin: 0;
+    .section:last-child {
+        padding: 20px 0;
+        margin: 40px 0 0;
         border-radius: 0;
         box-shadow: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .section:last-child .section-text {
         padding: 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
 
     .section:last-child h2 {
         font-size: 28px;
         margin-bottom: 30px;
+        text-align: center;
+        padding: 0 15px;
     }
 
     details {
         margin-bottom: 12px;
         border-radius: 6px;
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     details summary {
-        padding: 15px;
+        padding: 15px 0;
         font-size: 16px;
     }
 
@@ -1040,17 +1062,17 @@ details[open] summary + ul {
     }
 
     details summary::after {
-        right: 15px;
+        right: 0;
         font-size: 20px;
     }
 
     details p {
-        padding: 15px 15px 0 15px;
+        padding: 15px 0;
         font-size: 15px;
     }
 
     details ul {
-        padding: 0 15px 15px 15px;
+        padding: 0 0 15px 0;
     }
 
     details ul li {
@@ -1059,7 +1081,7 @@ details[open] summary + ul {
     }
 
     /* Mobile dark theme adjustments */
-    [data-theme="dark"] .section:last-child .section-content {
+    [data-theme="dark"] .section:last-child {
         background: #1a1a1a;
         box-shadow: none;
         border: none;
@@ -1220,7 +1242,7 @@ details[open] summary + ul {
             </div>
         </section>
 
-        <section class="section last-section">
+        <section class="section">
             <div class="section-content">
                 <div class="section-text">
                     <h2>Why Choose VaultGen?</h2>
@@ -1254,72 +1276,70 @@ details[open] summary + ul {
                         </li>
                     </ul>
                 </div>
-                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Secure password protection" class="section-image">
+                <img src="hacker.png" alt="Cybersecurity and digital protection" class="section-image">
             </div>
         </section>
 
-        <section class="section last-section">
-            <div class="section-content">
-                <div class="section-text">
-                    <h2>Frequently Asked Questions</h2>
-                    <details>
-                        <summary><strong>What is a secure password?</strong></summary>
-                        <p>A secure password is an essential component of online security that protects your digital accounts from unauthorized access. Here's what makes a password secure:</p>
-                        <ul>
-                            <li><strong>Password Length:</strong> Use at least 12-16 characters for maximum security</li>
-                            <li><strong>Character Mix:</strong> Combine uppercase letters, lowercase letters, numbers, and special symbols</li>
-                            <li><strong>Randomization:</strong> Avoid predictable patterns and personal information</li>
-                            <li><strong>Uniqueness:</strong> Create different passwords for each online account</li>
-                        </ul>
-                        <p>VaultGen's password generator automatically creates strong passwords that meet all modern cybersecurity requirements, helping protect your accounts from hacking attempts and data breaches.</p>
-                    </details>
-                    <details>
-                        <summary><strong>How does VaultGen check for password breaches?</strong></summary>
-                        <p>VaultGen's password breach checker uses the following secure process to protect your credentials:</p>
-                        <ul>
-                            <li><strong>Advanced API Integration:</strong> Connects with Have I Been Pwned (HIBP), a trusted database containing over 11 billion compromised passwords</li>
-                            <li><strong>Secure Hash Technology:</strong> Uses SHA-1 hashing and k-anonymity model for maximum privacy</li>
-                            <li><strong>Local Processing:</strong> Your password never leaves your device</li>
-                            <li><strong>Real-time Verification:</strong> Instantly checks against known data breaches</li>
-                        </ul>
-                        <p>This password security check helps you identify compromised passwords and maintain strong account protection without compromising your privacy.</p>
-                    </details>
-                    <details>
-                        <summary><strong>How does a password generator work?</strong></summary>
-                        <p>VaultGen's secure password generator creates strong, random passwords using advanced cryptographic methods:</p>
-                        <ul>
-                            <li><strong>Character Selection:</strong> Draws from multiple character sets (A-Z, a-z, 0-9, symbols)</li>
-                            <li><strong>Cryptographic Security:</strong> Uses secure random number generation for unpredictability</li>
-                            <li><strong>Password Creation:</strong> Combines random characters to meet your specified length</li>
-                            <li><strong>Security Verification:</strong> Ensures compliance with password strength requirements</li>
-                        </ul>
-                        <p>This password generation process creates unique, hack-resistant passwords that protect your accounts from both dictionary attacks and brute force attempts.</p>
-                    </details>
-                    <details>
-                        <summary><strong>Is VaultGen safe to use?</strong></summary>
-                        <p>Yes, VaultGen is a secure password management tool designed with your privacy in mind:</p>
-                        <ul>
-                            <li><strong>Local Processing:</strong> All password operations happen in your browser</li>
-                            <li><strong>Zero Storage:</strong> No passwords or personal data are ever saved</li>
-                            <li><strong>Transparent Security:</strong> Open-source code for public security review</li>
-                            <li><strong>HTTPS Protection:</strong> Encrypted connection for secure access</li>
-                            <li><strong>Privacy First:</strong> No ads, no tracking, no third-party scripts</li>
-                        </ul>
-                        <p>VaultGen prioritizes your online security while maintaining complete transparency and user privacy.</p>
-                    </details>
-                    <details>
-                        <summary><strong>How often should I change my passwords?</strong></summary>
-                        <p>Modern password security best practices recommend the following password management strategy:</p>
-                        <ul>
-                            <li><strong>Breach Response:</strong> Change passwords immediately after any security incident</li>
-                            <li><strong>Critical Accounts:</strong> Update financial and email passwords every 3-6 months</li>
-                            <li><strong>Regular Monitoring:</strong> Use VaultGen's breach checker to detect compromised passwords</li>
-                            <li><strong>Password Uniqueness:</strong> Never reuse passwords across different accounts</li>
-                            <li><strong>Two-Factor Authentication:</strong> Enable 2FA for additional security</li>
-                        </ul>
-                        <p>Following these password security guidelines, combined with VaultGen's tools, helps maintain strong protection for your online accounts.</p>
-                    </details>
-                </div>
+        <section class="section">
+            <div class="section-text">
+                <h2>Frequently Asked Questions</h2>
+                <details>
+                    <summary><strong>What is a secure password?</strong></summary>
+                    <p>A secure password is an essential component of online security that protects your digital accounts from unauthorized access. Here's what makes a password secure:</p>
+                    <ul>
+                        <li><strong>Password Length:</strong> Use at least 12-16 characters for maximum security</li>
+                        <li><strong>Character Mix:</strong> Combine uppercase letters, lowercase letters, numbers, and special symbols</li>
+                        <li><strong>Randomization:</strong> Avoid predictable patterns and personal information</li>
+                        <li><strong>Uniqueness:</strong> Create different passwords for each online account</li>
+                    </ul>
+                    <p>VaultGen's password generator automatically creates strong passwords that meet all modern cybersecurity requirements, helping protect your accounts from hacking attempts and data breaches.</p>
+                </details>
+                <details>
+                    <summary><strong>How does VaultGen check for password breaches?</strong></summary>
+                    <p>VaultGen's password breach checker uses the following secure process to protect your credentials:</p>
+                    <ul>
+                        <li><strong>Advanced API Integration:</strong> Connects with Have I Been Pwned (HIBP), a trusted database containing over 11 billion compromised passwords</li>
+                        <li><strong>Secure Hash Technology:</strong> Uses SHA-1 hashing and k-anonymity model for maximum privacy</li>
+                        <li><strong>Local Processing:</strong> Your password never leaves your device</li>
+                        <li><strong>Real-time Verification:</strong> Instantly checks against known data breaches</li>
+                    </ul>
+                    <p>This password security check helps you identify compromised passwords and maintain strong account protection without compromising your privacy.</p>
+                </details>
+                <details>
+                    <summary><strong>How does a password generator work?</strong></summary>
+                    <p>VaultGen's secure password generator creates strong, random passwords using advanced cryptographic methods:</p>
+                    <ul>
+                        <li><strong>Character Selection:</strong> Draws from multiple character sets (A-Z, a-z, 0-9, symbols)</li>
+                        <li><strong>Cryptographic Security:</strong> Uses secure random number generation for unpredictability</li>
+                        <li><strong>Password Creation:</strong> Combines random characters to meet your specified length</li>
+                        <li><strong>Security Verification:</strong> Ensures compliance with password strength requirements</li>
+                    </ul>
+                    <p>This password generation process creates unique, hack-resistant passwords that protect your accounts from both dictionary attacks and brute force attempts.</p>
+                </details>
+                <details>
+                    <summary><strong>Is VaultGen safe to use?</strong></summary>
+                    <p>Yes, VaultGen is a secure password management tool designed with your privacy in mind:</p>
+                    <ul>
+                        <li><strong>Local Processing:</strong> All password operations happen in your browser</li>
+                        <li><strong>Zero Storage:</strong> No passwords or personal data are ever saved</li>
+                        <li><strong>Transparent Security:</strong> Open-source code for public security review</li>
+                        <li><strong>HTTPS Protection:</strong> Encrypted connection for secure access</li>
+                        <li><strong>Privacy First:</strong> No ads, no tracking, no third-party scripts</li>
+                    </ul>
+                    <p>VaultGen prioritizes your online security while maintaining complete transparency and user privacy.</p>
+                </details>
+                <details>
+                    <summary><strong>How often should I change my passwords?</strong></summary>
+                    <p>Modern password security best practices recommend the following password management strategy:</p>
+                    <ul>
+                        <li><strong>Breach Response:</strong> Change passwords immediately after any security incident</li>
+                        <li><strong>Critical Accounts:</strong> Update financial and email passwords every 3-6 months</li>
+                        <li><strong>Regular Monitoring:</strong> Use VaultGen's breach checker to detect compromised passwords</li>
+                        <li><strong>Password Uniqueness:</strong> Never reuse passwords across different accounts</li>
+                        <li><strong>Two-Factor Authentication:</strong> Enable 2FA for additional security</li>
+                    </ul>
+                    <p>Following these password security guidelines, combined with VaultGen's tools, helps maintain strong protection for your online accounts.</p>
+                </details>
             </div>
         </section>
     </div>
