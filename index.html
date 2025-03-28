@@ -157,7 +157,6 @@
 
         .section {
             margin-top: 40px;
-            padding: 25px;
             background-color: #f8f8f8;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -214,7 +213,7 @@ header {
 .sidebar {
     position: fixed;
     top: 0;
-    right: -320px;
+    right: -350px;
     width: 300px;
     height: 100vh;
     background-color: #ffffff;
@@ -446,11 +445,19 @@ body {
 }
 
 details {
-    margin-bottom: 25px;
-    padding: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
     border: 5px;
     border-color: black;
     border-radius: 20px;
+    background-color: #e0e0e0;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+}
+
+details p {
+    color: #333;
+    margin: 8px 0 0 0;
 }
 
 /* Dark theme styles */
@@ -602,6 +609,394 @@ details {
     color: #cccccc;
 }
 
+/* Paragraph styles */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 25px;
+    margin-top: 40px;
+}
+
+/* Dark theme paragraph styles */
+[data-theme="dark"] p {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] p strong {
+    color: #ffffff;
+}
+
+/* List styles */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #444;
+}
+
+ul li svg {
+    color: #007bff;
+}
+
+/* Dark theme list styles */
+[data-theme="dark"] ul li {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] ul li svg {
+    color: #4dabf7;
+}
+
+/* Introduction section styles */
+.intro-section {
+    text-align: center;
+    padding: 40px 25px;
+}
+
+.intro-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.intro-section p {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.security-features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-2px);
+}
+
+.feature svg {
+    color: #007bff;
+}
+
+.feature span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Dark theme introduction section styles */
+[data-theme="dark"] .intro-section h2 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .intro-section p {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .feature {
+    background-color: #2d2d2d;
+}
+
+[data-theme="dark"] .feature span {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .feature svg {
+    color: #4dabf7;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    .security-features {
+        gap: 20px;
+    }
+
+    .feature {
+        padding: 12px 20px;
+    }
+
+    .intro-section h2 {
+        font-size: 28px;
+    }
+
+    .intro-section p {
+        font-size: 16px;
+    }
+}
+
+/* Section content styles */
+.section-content {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.section-text {
+    flex: 1;
+    padding: 25px;
+}
+
+.section-text h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.section-image {
+    width: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+    display: block;
+}
+
+/* FAQ section specific styles */
+.section:last-child .section-content {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section:last-child .section-text {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section:last-child h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #2d2d2d;
+}
+
+details {
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+details summary {
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background-color: white;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #eef2f7;
+    border-radius: 8px 8px 0 0;
+}
+
+details summary::after {
+    content: "›";
+    position: absolute;
+    right: 20px;
+    font-size: 24px;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    color: #007bff;
+}
+
+details[open] summary::after {
+    transform: rotate(90deg);
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary strong {
+    font-weight: 500;
+    margin-right: 40px;
+    color: #2d2d2d;
+}
+
+details p {
+    color: #666;
+    margin: 0;
+    padding: 20px 20px 0 20px;
+    background-color: #f8fafc;
+}
+
+details ul {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+    background-color: #f8fafc;
+    border-radius: 0 0 8px 8px;
+}
+
+details ul:last-child {
+    padding-bottom: 20px;
+}
+
+details p + ul {
+    padding-top: 10px;
+}
+
+details ul + p {
+    padding-top: 10px;
+}
+
+details[open] summary + p,
+details[open] summary + ul {
+    padding-top: 20px;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] details p,
+[data-theme="dark"] details ul {
+    background-color: #262626;
+}
+
+/* FAQ and Why Choose sections specific styles */
+.section:nth-last-child(-n+2) {
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Last sections specific styles */
+.last-section {
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .section-content {
+        flex-direction: column;
+    }
+    
+    .section-image {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .section-text {
+        padding: 20px;
+    }
+
+    .section-text h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    /* FAQ section mobile styles */
+    .section:last-child .section-content {
+        padding: 20px;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .section:last-child .section-text {
+        padding: 0;
+    }
+
+    .section:last-child h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    details {
+        margin-bottom: 12px;
+        border-radius: 6px;
+    }
+
+    details summary {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    details summary strong {
+        margin-right: 30px;
+        font-size: 15px;
+    }
+
+    details summary::after {
+        right: 15px;
+        font-size: 20px;
+    }
+
+    details p {
+        padding: 15px 15px 0 15px;
+        font-size: 15px;
+    }
+
+    details ul {
+        padding: 0 15px 15px 15px;
+    }
+
+    details ul li {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    /* Dark theme mobile adjustments */
+    [data-theme="dark"] .section:last-child .section-content {
+        background: #2d2d2d;
+        box-shadow: none;
+    }
+
+    [data-theme="dark"] details {
+        background-color: #363636;
+    }
+
+    [data-theme="dark"] details summary {
+        background-color: #363636;
+    }
+
+    [data-theme="dark"] details p,
+    [data-theme="dark"] details ul {
+        background-color: #2d2d2d;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -662,97 +1057,188 @@ details {
         <h3>Welcome to the VaultGen Password Generator</h3>
         <div id="generate"></div>
         <label for="length">Password length (4-64):</label>
-        <input type="number" id="length" min="4" max="64" value="16">
-        <div class="switch-group">
+        <input type="number" id="length" min="4" max="64" value="16" aria-label="Password length">
+        <div class="switch-group" role="group" aria-label="Password options">
             <label class="switch-label">Lowercase
                 <label class="switch">
-                    <input type="checkbox" id="lowercase" checked>
+                    <input type="checkbox" id="lowercase" checked aria-label="Include lowercase letters">
                     <span class="slider"></span>
                 </label>
             </label>
             <label class="switch-label">Uppercase
                 <label class="switch">
-                    <input type="checkbox" id="uppercase" checked>
+                    <input type="checkbox" id="uppercase" checked aria-label="Include uppercase letters">
                     <span class="slider"></span>
                 </label>
             </label>
             <label class="switch-label">Numbers
                 <label class="switch">
-                    <input type="checkbox" id="numbers" checked>
+                    <input type="checkbox" id="numbers" checked aria-label="Include numbers">
                     <span class="slider"></span>
                 </label>
             </label>
             <label class="switch-label">Special (@#$%&_)
                 <label class="switch">
-                    <input type="checkbox" id="special" checked>
+                    <input type="checkbox" id="special" checked aria-label="Include special characters">
                     <span class="slider"></span>
                 </label>
             </label>
         </div>
         <div id="generate"></div>
-        <button id="generate-btn">Generate Password</button>
+        <button id="generate-btn" aria-label="Generate new password">Generate Password</button>
         
         <div class="password-container">
-            <div class="password" id="password"></div>
-            <button id="copy-btn" disabled>Copy</button>
+            <div class="password" id="password" role="textbox" aria-label="Generated password" aria-readonly="true"></div>
+            <button id="copy-btn" disabled aria-label="Copy password to clipboard">Copy</button>
         </div>
         <div id="strength"></div>
         <div class="section">
             <h2>Check Password Strength</h2>
-            <input type="text" id="user-password" placeholder="Enter a password">
-            <div class="strength-bar">
+            <input type="text" id="user-password" placeholder="Enter a password" aria-label="Enter password to check strength">
+            <div class="strength-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                 <div id="strength-bar"></div>
             </div>
-            <div id="strength-text"></div>
+            <div id="strength-text" aria-live="polite"></div>
         </div>
         
         <div id="compromise"></div>
         <div class="section">
             <h2>Check If Your Password Is Compromised</h2>
-            <input type="text" id="check-password" placeholder="Enter a password">
-            <button id="check-compromise-btn">Check</button>
-            <div id="compromise-result"></div>
+            <input type="text" id="check-password" placeholder="Enter a password" aria-label="Enter password to check for data breaches">
+            <button id="check-compromise-btn" aria-label="Check if password is compromised">Check</button>
+            <div id="compromise-result" aria-live="polite"></div>
         </div>
-        <p style="font-size: 18px; color: #555; margin-bottom: 25px; margin-top: 40px;">
-    In today's digital age, having a strong and secure password is critical to protect your personal and financial information from cyber threats. VaultGen helps you generate robust passwords that are difficult to crack, ensuring your online security is never compromised.
-</p>
 
-<section>
-  <h2>Why Choose VaultGen?</h2>
-  <p>VaultGen is a <strong>free password generator</strong> designed for maximum security. Unlike other tools, it is <strong>ad-free and privacy-focused</strong>. You can create <strong>strong, random passwords</strong> and check if your credentials have been leaked in past <strong>data breaches</strong>.</p>
-  <ul>
-    <li>🔐 Secure and random password generation</li>
-    <li>🛡️ Data breach check for leaked credentials</li>
-    <li>🚀 Fast, lightweight, and free to use</li>
-    <li>🔒 No ads, no tracking – full privacy</li>
-  </ul>
-</section>
+        <section class="section intro-section">
+            <h2>Secure Your Digital Life</h2>
+            <p>In today's digital age, having a strong and secure password is critical to protect your personal and financial information from cyber threats. VaultGen helps you generate robust passwords that are difficult to crack, ensuring your online security is never compromised.</p>
+            <div class="security-features">
+                <div class="feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Military-grade encryption</span>
+                </div>
+                <div class="feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                        <line x1="2" y1="9" x2="22" y2="9"></line>
+                    </svg>
+                    <span>Local processing only</span>
+                </div>
+                <div class="feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                    <span>Lightning fast</span>
+                </div>
+            </div>
+        </section>
 
-<section>
-  <h2>Frequently Asked Questions</h2>
-  <details>
-    <summary><strong>What is a secure password?</strong></summary>
-    <p>A secure password is long, random, and includes letters, numbers, and special characters. VaultGen generates highly secure passwords instantly.</p>
-  </details>
-  <details>
-    <summary><strong>How does VaultGen check for password breaches?</strong></summary>
-    <p>VaultGen uses a secure API to check if your password has been exposed in known data breaches, ensuring maximum security.</p>
-  </details>
-  <details>
-  <summary><strong>How does a password generator work?</strong></summary>
-  <p>A password generator creates random passwords using a combination of uppercase and lowercase letters, numbers, and special characters. VaultGen ensures high security by generating completely random and unique passwords.</p>
-</details>
+        <section class="section last-section">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Why Choose VaultGen?</h2>
+                    <p>VaultGen is a <strong>free password generator</strong> designed for maximum security. Unlike other tools, it is <strong>ad-free and privacy-focused</strong>. You can create <strong>strong, random passwords</strong> and check if your credentials have been leaked in past <strong>data breaches</strong>.</p>
+                    <ul>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Secure and random password generation
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            Data breach check for leaked credentials
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                            </svg>
+                            Fast, lightweight, and free to use
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                            No ads, no tracking – full privacy
+                        </li>
+                    </ul>
+                </div>
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Secure password protection" class="section-image">
+            </div>
+        </section>
 
-<details>
-  <summary><strong>Is VaultGen safe to use?</strong></summary>
-  <p>Yes! VaultGen does not store or track any passwords. All password generation happens locally in your browser, ensuring full privacy and security.</p>
-</details>
-
-<details>
-  <summary><strong>How often should I change my passwords?</strong></summary>
-  <p>Cybersecurity experts recommend changing important passwords (such as email and banking passwords) every 3-6 months. If your password has been exposed in a data breach, change it immediately.</p>
-</details>
-</section>
+        <section class="section last-section">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Frequently Asked Questions</h2>
+                    <details>
+                        <summary><strong>What is a secure password?</strong></summary>
+                        <p>A secure password is an essential component of online security that protects your digital accounts from unauthorized access. Here's what makes a password secure:</p>
+                        <ul>
+                            <li><strong>Password Length:</strong> Use at least 12-16 characters for maximum security</li>
+                            <li><strong>Character Mix:</strong> Combine uppercase letters, lowercase letters, numbers, and special symbols</li>
+                            <li><strong>Randomization:</strong> Avoid predictable patterns and personal information</li>
+                            <li><strong>Uniqueness:</strong> Create different passwords for each online account</li>
+                        </ul>
+                        <p>VaultGen's password generator automatically creates strong passwords that meet all modern cybersecurity requirements, helping protect your accounts from hacking attempts and data breaches.</p>
+                    </details>
+                    <details>
+                        <summary><strong>How does VaultGen check for password breaches?</strong></summary>
+                        <p>VaultGen's password breach checker uses the following secure process to protect your credentials:</p>
+                        <ul>
+                            <li><strong>Advanced API Integration:</strong> Connects with Have I Been Pwned (HIBP), a trusted database containing over 11 billion compromised passwords</li>
+                            <li><strong>Secure Hash Technology:</strong> Uses SHA-1 hashing and k-anonymity model for maximum privacy</li>
+                            <li><strong>Local Processing:</strong> Your password never leaves your device</li>
+                            <li><strong>Real-time Verification:</strong> Instantly checks against known data breaches</li>
+                        </ul>
+                        <p>This password security check helps you identify compromised passwords and maintain strong account protection without compromising your privacy.</p>
+                    </details>
+                    <details>
+                        <summary><strong>How does a password generator work?</strong></summary>
+                        <p>VaultGen's secure password generator creates strong, random passwords using advanced cryptographic methods:</p>
+                        <ul>
+                            <li><strong>Character Selection:</strong> Draws from multiple character sets (A-Z, a-z, 0-9, symbols)</li>
+                            <li><strong>Cryptographic Security:</strong> Uses secure random number generation for unpredictability</li>
+                            <li><strong>Password Creation:</strong> Combines random characters to meet your specified length</li>
+                            <li><strong>Security Verification:</strong> Ensures compliance with password strength requirements</li>
+                        </ul>
+                        <p>This password generation process creates unique, hack-resistant passwords that protect your accounts from both dictionary attacks and brute force attempts.</p>
+                    </details>
+                    <details>
+                        <summary><strong>Is VaultGen safe to use?</strong></summary>
+                        <p>Yes, VaultGen is a secure password management tool designed with your privacy in mind:</p>
+                        <ul>
+                            <li><strong>Local Processing:</strong> All password operations happen in your browser</li>
+                            <li><strong>Zero Storage:</strong> No passwords or personal data are ever saved</li>
+                            <li><strong>Transparent Security:</strong> Open-source code for public security review</li>
+                            <li><strong>HTTPS Protection:</strong> Encrypted connection for secure access</li>
+                            <li><strong>Privacy First:</strong> No ads, no tracking, no third-party scripts</li>
+                        </ul>
+                        <p>VaultGen prioritizes your online security while maintaining complete transparency and user privacy.</p>
+                    </details>
+                    <details>
+                        <summary><strong>How often should I change my passwords?</strong></summary>
+                        <p>Modern password security best practices recommend the following password management strategy:</p>
+                        <ul>
+                            <li><strong>Breach Response:</strong> Change passwords immediately after any security incident</li>
+                            <li><strong>Critical Accounts:</strong> Update financial and email passwords every 3-6 months</li>
+                            <li><strong>Regular Monitoring:</strong> Use VaultGen's breach checker to detect compromised passwords</li>
+                            <li><strong>Password Uniqueness:</strong> Never reuse passwords across different accounts</li>
+                            <li><strong>Two-Factor Authentication:</strong> Enable 2FA for additional security</li>
+                        </ul>
+                        <p>Following these password security guidelines, combined with VaultGen's tools, helps maintain strong protection for your online accounts.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
@@ -872,90 +1358,88 @@ details {
                 document.body.appendChild(textArea);
                 textArea.select();
 
-                // Tentativo moderno con Clipboard API
                 if (navigator.clipboard) {
                     await navigator.clipboard.writeText(password);
-                } 
-                // Fallback per browser obsoleti
-                else {
+                } else {
                     document.execCommand('copy');
                 }
 
-                // Feedback visivo migliorato
+                // Enhanced visual feedback
                 elements.copyBtn.textContent = "✓ Copied!";
                 elements.copyBtn.style.backgroundColor = "#218838";
+                elements.copyBtn.style.transform = "scale(1.05)";
                 setTimeout(() => {
-                    elements.copyBtn.textContent = "Copia";
+                    elements.copyBtn.textContent = "Copy";
                     elements.copyBtn.style.backgroundColor = "#28a745";
+                    elements.copyBtn.style.transform = "scale(1)";
                 }, 2000);
 
             } catch (err) {
-                console.error("Copia fallita:", err);
+                console.error("Copy failed:", err);
                 alert("Error! Use Ctrl+C to copy manually.");
             } finally {
                 document.body.removeChild(textArea);
             }
         }
 
-            // Verifica forza password
+            // Password strength checker
             function checkPasswordStrength() {
-    const password = elements.userPassword.value;
-    let score = 0;
+                const password = elements.userPassword.value;
+                let score = 0;
 
-    // Lunghezza
-    if (password.length >= 24) score += 2;
-    else if (password.length >= 16) score += 1;
-    else if (password.length >= 12) score -= 0;
-    else if (password.length >= 12) score -= 1;
-    else if (password.length >= 8) score -= 2;
-    else if (password.length >= 6) score -= 3;
-    else if (password.length > 4) score -= 4;
-    else if (password.length <= 4) score -= 5;
+                // Length
+                if (password.length >= 24) score += 2;
+                else if (password.length >= 16) score += 1;
+                else if (password.length >= 12) score += 0;
+                else if (password.length >= 8) score -= 1;
+                else if (password.length >= 6) score -= 2;
+                else if (password.length > 4) score -= 3;
+                else if (password.length <= 4) score -= 4;
 
-    // Complessità
-    if (/[a-z]/.test(password)) score += 1;
-    if (/[A-Z]/.test(password)) score += 1;
-    if (/[0-9]/.test(password)) score += 1;
-    if (/[@#$%&_]/.test(password)) score += 2;  // Più valore ai caratteri speciali
+                // Complexity
+                if (/[a-z]/.test(password)) score += 1;
+                if (/[A-Z]/.test(password)) score += 1;
+                if (/[0-9]/.test(password)) score += 1;
+                if (/[@#$%&_]/.test(password)) score += 2;
 
-    // Penalizzazione per sequenze comuni
-    const commonPatterns = [
-        "1234", "abcd", "qwerty", "password", "admin", "welcome", "iloveyou", "pass",
-        "1111", "0000", "9876", "2023", "2024", "2025", "2020", "1990", "2000", "love", "hello",
-        "money", "football", "1qaz", "2wsx", "3edc", "aaa", "zzz", "password1", "password123", "abc", "abcde", "123", "12345"
-    ];
+                // Common patterns penalty
+                const commonPatterns = [
+                    "1234", "abcd", "qwerty", "password", "admin", "welcome", "iloveyou", "pass",
+                    "1111", "0000", "9876", "2023", "2024", "2025", "2020", "1990", "2000", "love", "hello",
+                    "money", "football", "1qaz", "2wsx", "3edc", "aaa", "zzz", "password1", "password123", "abc", "abcde", "123", "12345"
+                ];
 
-    for (let pattern of commonPatterns) {
-        if (password.toLowerCase().includes(pattern)) {
-            score -= 3; // Forte penalizzazione
-            break;
-        }
-    }
+                for (let pattern of commonPatterns) {
+                    if (password.toLowerCase().includes(pattern)) {
+                        score -= 3;
+                        break;
+                    }
+                }
 
-    // Livelli di sicurezza
-    const levels = [
-        {text: "Molto Debole", color: "#e74c3c", width: "10%"},
-        {text: "Debole", color: "#f39c12", width: "30%"},
-        {text: "Moderata", color: "#f1c40f", width: "50%"},
-        {text: "Buona", color: "#3498db", width: "75%"},
-        {text: "Molto Forte", color: "#2ecc71", width: "100%"}
-    ];
+                // Security levels
+                const levels = [
+                    {text: "Very Weak", color: "#e74c3c", width: "10%"},
+                    {text: "Weak", color: "#f39c12", width: "30%"},
+                    {text: "Moderate", color: "#f1c40f", width: "50%"},
+                    {text: "Strong", color: "#3498db", width: "75%"},
+                    {text: "Very Strong", color: "#2ecc71", width: "100%"}
+                ];
 
-    // Garantire che il punteggio sia compreso tra 0 e 4
-    const level = Math.max(0, Math.min(score, 4));
+                const level = Math.max(0, Math.min(score, 4));
 
-    elements.strengthBar.style.width = levels[level].width;
-    elements.strengthBar.style.backgroundColor = levels[level].color;
-    elements.strengthText.textContent = levels[level].text;
-    elements.strengthText.style.color = levels[level].color;
-}
+                elements.strengthBar.style.width = levels[level].width;
+                elements.strengthBar.style.backgroundColor = levels[level].color;
+                elements.strengthText.textContent = levels[level].text;
+                elements.strengthText.style.color = levels[level].color;
+            }
 
-            // Verifica password compromessa
+            // Compromised password checker
             async function checkCompromisedPassword() {
                 const password = elements.checkPassword.value;
                 if (!password) {
-                    elements.compromiseResult.textContent = "Inserisci una password da verificare";
-                    elements.compromiseResult.style.backgroundColor = "#ffeeba";
+                    elements.compromiseResult.textContent = "Please enter a password to check";
+                    elements.compromiseResult.style.backgroundColor = "#fff3cd";
+                    elements.compromiseResult.style.color = "#856404";
                     return;
                 }
 
@@ -969,7 +1453,7 @@ details {
 
                     const compromised = results.includes(suffix);
                     elements.compromiseResult.textContent = compromised 
-                        ? "⚠️ Password found in leak database!" 
+                        ? "⚠️ Password found in data breach!" 
                         : "✅ Secure password (not compromised)";
                     elements.compromiseResult.style.backgroundColor = compromised ? "#f8d7da" : "#d4edda";
                     elements.compromiseResult.style.color = compromised ? "#721c24" : "#155724";
@@ -977,6 +1461,7 @@ details {
                 } catch (error) {
                     elements.compromiseResult.textContent = "❌ Error during verification";
                     elements.compromiseResult.style.backgroundColor = "#f8d7da";
+                    elements.compromiseResult.style.color = "#721c24";
                 }
             }
 
