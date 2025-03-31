@@ -1222,6 +1222,12 @@ details[open] summary + ul {
                     <span class="slider"></span>
                 </label>
             </label>
+            <label class="switch-label">Passphrase
+                <label class="switch">
+                    <input type="checkbox" id="passphrase" aria-label="Generate passphrase instead">
+                    <span class="slider"></span>
+                </label>
+            </label>
         </div>
         <div id="generate"></div>
         <button id="generate-btn" aria-label="Generate new password">Generate Password</button>
@@ -1385,8 +1391,8 @@ details[open] summary + ul {
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    
-        <script>
+    <script src="words.js"></script>
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Sidebar functionality
             const menuBtn = document.querySelector('.menu-btn');
@@ -1437,6 +1443,7 @@ details[open] summary + ul {
                 uppercase: document.getElementById("uppercase"),
                 numbers: document.getElementById("numbers"),
                 special: document.getElementById("special"),
+                passphrase: document.getElementById("passphrase"),
                 password: document.getElementById("password"),
                 copyBtn: document.getElementById("copy-btn"),
                 generateBtn: document.getElementById("generate-btn"),
@@ -1456,8 +1463,29 @@ details[open] summary + ul {
                 special: "@#$%&_"
             };
 
-            // Funzione generazione password
+            // Add switcher logic
+            function handleSwitcherChange(event) {
+                const isPassphrase = event.target.id === 'passphrase';
+                const characterSwitchers = ['lowercase', 'uppercase', 'numbers', 'special'];
+
+                if (isPassphrase && event.target.checked) {
+                    // If passphrase is turned on, turn off all character switchers
+                    characterSwitchers.forEach(switcherId => {
+                        elements[switcherId].checked = false;
+                    });
+                } else if (!isPassphrase && event.target.checked) {
+                    // If any character switcher is turned on, turn off passphrase
+                    elements.passphrase.checked = false;
+                }
+            }
+
+            // Modified password generation function
             function generatePassword() {
+                if (elements.passphrase.checked) {
+                    generatePassphrase();
+                    return;
+                }
+
                 const length = parseInt(elements.length.value);
                 if (isNaN(length) || length < 4 || length > 64) {
                     alert("Invalid length (4-64 characters)");
@@ -1480,6 +1508,28 @@ details[open] summary + ul {
                 }
 
                 elements.password.textContent = password.split('').sort(() => Math.random() - 0.5).join('');
+                elements.copyBtn.disabled = false;
+                elements.copyBtn.classList.add('active');
+            }
+
+            // New passphrase generation function
+            function generatePassphrase() {
+                const length = Math.min(Math.max(parseInt(elements.length.value) / 4, 3), 8);
+                let passphrase = [];
+                const separators = [...CHAR_SETS.numbers, ...CHAR_SETS.special]; // Combine numbers and special chars
+
+                for (let i = 0; i < length; i++) {
+                    const randomWord = COMMON_WORDS[Math.floor(Math.random() * COMMON_WORDS.length)];
+                    passphrase.push(randomWord.charAt(0).toUpperCase() + randomWord.slice(1));
+                    
+                    // Add separator between words (except after the last word)
+                    if (i < length - 1) {
+                        const randomSeparator = separators[Math.floor(Math.random() * separators.length)];
+                        passphrase.push(randomSeparator);
+                    }
+                }
+
+                elements.password.textContent = passphrase.join('');
                 elements.copyBtn.disabled = false;
                 elements.copyBtn.classList.add('active');
             }
@@ -1613,6 +1663,11 @@ details[open] summary + ul {
             elements.copyBtn.addEventListener("click", copyPassword);
             elements.userPassword.addEventListener("input", checkPasswordStrength);
             elements.checkCompromiseBtn.addEventListener("click", checkCompromisedPassword);
+
+            // Add event listeners for switchers
+            ['lowercase', 'uppercase', 'numbers', 'special', 'passphrase'].forEach(switcherId => {
+                elements[switcherId].addEventListener('change', handleSwitcherChange);
+            });
         });
     </script>
 </body>
