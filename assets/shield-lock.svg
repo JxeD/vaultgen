@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Shield Base -->
+    <path d="M400 50L100 175V400C100 575 225 725 400 775C575 725 700 575 700 400V175L400 50Z" 
+          fill="#E3F2FD" stroke="#2196F3" stroke-width="40"/>
+    
+    <!-- Lock Body -->
+    <rect x="250" y="350" width="300" height="250" rx="30" 
+          fill="#2196F3" stroke="#1976D2" stroke-width="20"/>
+    
+    <!-- Lock Shackle -->
+    <path d="M300 350V275C300 214 349 165 400 165C451 165 500 214 500 275V350" 
+          stroke="#1976D2" stroke-width="40" stroke-linecap="round"/>
+    
+    <!-- Keyhole -->
+    <circle cx="400" cy="450" r="40" fill="#E3F2FD"/>
+    <rect x="385" y="450" width="30" height="80" rx="15" fill="#E3F2FD"/>
+    
+    <!-- Binary Code Background (Subtle) -->
+    <g opacity="0.1" fill="#1976D2">
+        <text x="150" y="250" font-family="monospace" font-size="24">10110</text>
+        <text x="550" y="300" font-family="monospace" font-size="24">01001</text>
+        <text x="250" y="650" font-family="monospace" font-size="24">11010</text>
+        <text x="450" y="600" font-family="monospace" font-size="24">00101</text>
+    </g>
+    
+    <!-- Glow Effect -->
+    <path d="M400 70L120 185V400C120 560 235 700 400 745C565 700 680 560 680 400V185L400 70Z" 
+          fill="url(#glow)" opacity="0.3"/>
+    
+    <!-- Gradient Definition -->
+    <defs>
+        <radialGradient id="glow" cx="400" cy="400" r="400" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#64B5F6"/>
+            <stop offset="100%" stop-color="#2196F3" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+</svg> 
