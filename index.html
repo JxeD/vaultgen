@@ -21,12 +21,11 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         h1 {
@@ -1102,6 +1101,41 @@ details[open] summary + ul {
     }
 }
 
+/* Footer styles */
+.site-footer {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 20px 0;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Dark theme footer adjustments */
+[data-theme="dark"] .site-footer {
+    background-color: #1a1a1a;
+}
+
+.container {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
     </style>
 </head>
 <body>
@@ -1343,6 +1377,12 @@ details[open] summary + ul {
             </div>
         </section>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 VaultGen. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     
